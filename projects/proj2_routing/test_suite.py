@@ -26,11 +26,36 @@ def main():
     t.test('dv_router', 'tests.test_link_weights')
     t.test('dv_router', 'tests.test_expire_routes')
     t.test(
-        'dv_router',
+       'dv_router',
         'tests.test_route_poisoning',
-        extra_args=['--poison-mode'])
+       extra_args=['--poison-mode'])
 
     # Add your own tests here.
+    t.test('dv_router', 'tests.test_multiple_routers')
+    t.test(
+        'dv_router',
+        'tests.test_count_to_inf',
+        extra_args=['--poison-mode'])
+    t.test(
+        'dv_router',
+        'tests.test_topo_candy',
+        extra_args=['--poison-mode'])
+    t.test('dv_router', 'tests.test_fallback_direct')
+    t.test('dv_router', 'tests.test_dont_forget_direct_paths')
+    t.test('dv_router', 'tests.test_equal_cost_paths')
+    for i in range(50):
+        t.test('dv_router', 'tests.test_rand')
+    for i in range(50):
+        t.test(
+            'dv_router',
+            'tests.test_rand',
+            extra_args=['--poison-mode'])
+    t.test(
+        'dv_router',
+        'tests.test_direct_route_poisoning',
+        extra_args=['--poison-mode'])
+
+
 
     t.finish()
 
