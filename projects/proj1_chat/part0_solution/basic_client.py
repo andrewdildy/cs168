@@ -1,6 +1,7 @@
 import socket
 import sys
 
+
 class BasicClient(object):
 
     def __init__(self, address, port):
